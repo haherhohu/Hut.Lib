@@ -19,7 +19,7 @@ namespace Hut
 {
     public class HutLogger<HutLogType> : ObservableCollection<HutLogType> where HutLogType : IHutLog
     {
-        protected HutSaveFormat saveformat;
+        //protected HutSaveFormat saveformat;
 
         public HutLogger()
             : base()
