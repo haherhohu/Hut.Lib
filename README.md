@@ -2,8 +2,8 @@ Hut Library
 ===========
 
 frequently used library collections for system-base development 
-such as log, setting, xml, json, ini, scheduled and/or event task,
-tcp-ip socket server/client and ftp, http, mail client
+such as log, setting, xml, json, ini, ~scheduled and/or event task~,
+tcp-ip socket server/client and ftp, http, ~mail client~
 with some basically design pattern
 
 first write down on 2016, only work in windows-wpf base system.
@@ -17,9 +17,11 @@ but you have something good idea, anytime talk to me.
 
 Dependency management with Nuget
 
-#### 1.1. HutTaskManager:
+#### ~1.1. HutTaskManager:~
 * Time/File Task Manager
 * Dependency - Win32.TaskScheduler to
+* now Underconstruction. change Win32.TaskScheduler to System.Threading.Tasks(.net core)
+* make will be soon
 
 #### 1.2. HutLog
 * Singleton Logger
@@ -31,9 +33,10 @@ Dependency management with Nuget
 * Json Simple Serializer
 * Dependency - Newtonsoft.Json
 
-#### 1.5. HutMailClient
+#### ~1.5. HutMailClient~
 * Mail Client
 * Dependency - Microsoft.Exchange.WebServices
+* currently under construction. but this is not importent for me.
 
 #### 1.6. HutFTPClient
 * FTP Client
@@ -42,8 +45,9 @@ Dependency management with Nuget
 * TCP/IP Socket Server
 * TCP/IP Socket Client
 
-#### 1.8 HutPrinter (Not Tested)
+#### ~1.8 HutPrinter (Not Tested)~
 * Printing Document or string
+* same with mail client. not importent. just plan
 
 #### 1.9 HutINI(Planned)
 * INI Simple Serializer
@@ -56,11 +60,7 @@ Dependency management with Nuget
 * Longitude Sum
 * Xor Sum
 
-### 2. HutTest test Program
-* Just Test for HutLib
-
-
-# Hut.Pattern
+#### 1.12 Hut.Pattern
 Design Patterns for C#
 
 simplify using for design Patterns
@@ -71,4 +71,12 @@ currently implemented are:
 currently under constructions are:
  * Factory
  * Builder
- * NotifyPropertyChanged Observer
+ * ~NotifyPropertyChanged Observer~ instad ms.IObserver
+ 
+ #### 1.13 general parser(Planned)
+ * general-simple text parser
+ 
+### 2. HutTest test Program
+* Just Test for HutLib
+
+
