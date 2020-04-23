@@ -27,10 +27,10 @@ namespace Hut
         }
     }
 
-    // Register ¿¡¼­ ÇØ´ç Å¸ÀÔ¿¡ ´ëÇØ µî·Ï
-    // unregister ¿¡¼­ ÇØÁ¦
-    // notify ¿¡¼­ ¾×¼Ç
-    // Action<T> °¡ a ActionÀÌ ¾Æ´Ï°í Action Chain ÀÌ¹Ç·Î ÀÌ·¸°Ô.
+    // Register ì—ì„œ í•´ë‹¹ íƒ€ì…ì— ëŒ€í•´ ë“±ë¡
+    // unregister ì—ì„œ í•´ì œ
+    // notify ì—ì„œ ì•¡ì…˜
+    // Action<T> ê°€ a Actionì´ ì•„ë‹ˆê³  Action Chain ì´ë¯€ë¡œ ì´ë ‡ê²Œ.
     public class HutBaseMediator<T>
     {
         private object LordsOfTheLockerroom = new object();

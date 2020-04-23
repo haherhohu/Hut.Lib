@@ -3,7 +3,7 @@ using Hut;
 
 namespace Hut
 {
-    // ºñ½ÁÇÑ Å¸ÀÔÀÇ ¹«¾ğ°¡¸¦ ±×³É »ı¼º T ´Â Ç×»ó ºÎ¸ğ Å¬·¡½ºÀÌ°Å³ª ÀÎÅÍÆäÀÌ½º¿©¾ß.
+    // ë¹„ìŠ·í•œ íƒ€ì…ì˜ ë¬´ì–¸ê°€ë¥¼ ê·¸ëƒ¥ ìƒì„± T ëŠ” í•­ìƒ ë¶€ëª¨ í´ë˜ìŠ¤ì´ê±°ë‚˜ ì¸í„°í˜ì´ìŠ¤ì—¬ì•¼.
     // animal->lion, cheetah, bison etc.
     public class HutAbstractFactory<T> where T : class, new()
     {
@@ -13,14 +13,14 @@ namespace Hut
         }
     }
 
-    // ºô´õ ÆĞÅÏÀÇ ´ë»óÀÌ µÇ´Â °Ç¹°
+    // ë¹Œë” íŒ¨í„´ì˜ ëŒ€ìƒì´ ë˜ëŠ” ê±´ë¬¼
     public interface IHutBuilding
     {
         T initialize<T>();
     }
 
-    // °ÇÃà°¡
-    // ³»ºÎÀûÀ¸·Î ÀÏÁ¤ÇÑ ¹«¾ğ°¡-ÇØÁà¾ß ÇÒ ÀÏÀÌ ÀÖÀ½(matrix, vector ¹¹ ±×·±°Å)
+    // ê±´ì¶•ê°€
+    // ë‚´ë¶€ì ìœ¼ë¡œ ì¼ì •í•œ ë¬´ì–¸ê°€-í•´ì¤˜ì•¼ í•  ì¼ì´ ìˆìŒ(matrix, vector ë­ ê·¸ëŸ°ê±°)
     public class HutAbstractBuilder<T> where T : IHutBuilding, new()
 
     {
