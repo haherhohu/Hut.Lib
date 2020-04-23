@@ -72,7 +72,10 @@ currently under constructions are:
  * Factory
  * Builder
  * ~NotifyPropertyChanged Observer~ instad ms.IObserver
-
+ 
+ #### 1.13 general parser(Planned)
+ * general-simple text parser
+ 
 ### 2. HutTest test Program
 * Just Test for HutLib
 
