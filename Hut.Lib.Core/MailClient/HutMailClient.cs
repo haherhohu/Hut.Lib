@@ -7,18 +7,21 @@ namespace Hut
     public class HutMailClient
     {
         private string SMTPADDRESS = @"mail.kasi.re.kr";
+
         //string SMTPADDRESS = @"ex2010-1st.kasi.re.kr/owa/";
         private string SMTPID = @"ds_scheduler@kasi.re.kr";
+
         private string SMTPPASSWORD = @"Neo0212)@!@";
+
         //        string SMTPADDRESS = @"selab.co.kr";
         //        string SMTPID = @"ysryu";
         //        string SMTPPASSWORD = @"ftptkd12";
         private string SENDERID = @"ds_scheduler@kasi.re.kr";
+
         private string SENDERNAME = @"DEEP-South Scheduler";
 
         public HutMailClient()
         {
-
         }
 
         // filename: fullpath
@@ -78,8 +81,6 @@ namespace Hut
                 }
 
                 message.Send();
-
-
             }
             catch (Exception e)
             {
@@ -119,8 +120,6 @@ namespace Hut
                 }
 
                 message.Send();
-
-
             }
             catch (Exception e)
             {
@@ -176,8 +175,6 @@ namespace Hut
                 message.ToRecipients.Add(@"ysryu@selab.co.kr");
                 message.Attachments.AddFileAttachment(@"OCF_CTIO_20150720.txt");
                 message.Send();
-
-
             }
             catch (Exception e)
             {
@@ -226,7 +223,6 @@ namespace Hut
             //            mail = null;
 
             ////            DeepSouthLogger.Instance.logI(@"Mail Send Complete");
-
         }
     }
 }
