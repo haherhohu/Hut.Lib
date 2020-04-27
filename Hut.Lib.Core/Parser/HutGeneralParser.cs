@@ -16,13 +16,13 @@ namespace Hut
 {
     public abstract class HutGeneralParser
     {
-        protected Object objects;
+        protected object objects;
 
         public const string ASTEROID_PROVISIONAL_DESIGNATION_REGEX = @"[0-9A-Z]{1}[0-9]{3}[\s]*[A-Z][A-Z\-]*[A-Z0-9][0-9]*"; // 1948 OA
 
         public HutGeneralParser(string filename = null)
         {
-            objects = new Object();
+            objects = new object();
 
             if (filename != null)
                 readFile(filename);
@@ -32,17 +32,17 @@ namespace Hut
 
         public void Clear()
         {
-            ((List<Object>)objects).Clear();
+            ((List<object>)objects).Clear();
         }
 
         public int getNumberOfObjects()
         {
-            return ((List<Object>)objects).Count;
+            return ((List<object>)objects).Count;
         }
 
-        public Object[] getObjectArray()
+        public object[] getObjectArray()
         {
-            return ((List<Object>)objects).ToArray();
+            return ((List<object>)objects).ToArray();
         }
 
         // check regular expression

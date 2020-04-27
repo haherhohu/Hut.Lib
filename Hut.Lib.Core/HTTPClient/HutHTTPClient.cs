@@ -1,31 +1,31 @@
 ﻿/******************************************************************************
- * Deep South HTTP Client
- * 
- * - HTTP Client and Html Tag remover (+parser)
- * 
- * Author : Song Junghyun
+ * Hut HTTP Client
+ *
+ * - HTTP Client for download web source
+ * - change httpagilitypack to system base
+ *
+ * Author : Daegung Kim
  * Version: 1.0.3
- * Update : 2015-04-17
+ * Update : 2020-04-27
  ******************************************************************************/
 
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
-using HtmlAgilityPack;
-
+using System.Web;
 
 namespace DeepSouthUtils
 {
-    public class DeepSouthHTTPClient
+    public class HutHTTPClient
     {
-        HttpWebRequest request;
-        HttpWebResponse response;
+        private HttpWebRequest request;
+        private HttpWebResponse response;
 
         private void get(string address)
         {
-            // create web request 
-            request  = (HttpWebRequest)WebRequest.Create(address);
+            // create web request
+            request = (HttpWebRequest)WebRequest.Create(address);
 
             // get response
             response = (HttpWebResponse)request.GetResponse();
@@ -34,21 +34,21 @@ namespace DeepSouthUtils
         // get response string
         private string getResponseString()
         {
-            StreamReader reader = new StreamReader( response.GetResponseStream() );
+            StreamReader reader = new StreamReader(response.GetResponseStream());
             try
             {
                 return reader.ReadToEnd();
             }
             catch (WebException e)
             {
-                if (e.Status == WebExceptionStatus.Timeout)
-                    DeepSouthLogger.Instance.logE(@"connection timeout: " + e.Message);
+                //if (e.Status == WebExceptionStatus.Timeout)
+                //    DeepSouthLogger.Instance.logE(@"connection timeout: " + e.Message);
 
                 return null;
             }
         }
 
-        public bool getMonthlyTET( string url, string filepath )
+        public bool getMonthlyTET(string url, string filepath)
         {
             using (WebClient client = new WebClient())
             {
@@ -59,7 +59,7 @@ namespace DeepSouthUtils
                 }
                 catch (WebException e)
                 {
-                    DeepSouthLogger.Instance.logE(@"download error: " + e.Message);
+                    //                    DeepSouthLogger.Instance.logE(@"download error: " + e.Message);
                     return false;
                 }
             }
@@ -70,7 +70,6 @@ namespace DeepSouthUtils
         {
             string fullpath = address + @"/cgi-bin/mpeph2.cgi?" + @"ty=e";
             string query = @"";
-
 
             // set variables
             if (target != null)
@@ -85,7 +84,7 @@ namespace DeepSouthUtils
                 query += @"&u=" + unit + @"&uto=0";
             if (observationcode != null)
                 query += @"&c=" + observationcode;
-            
+
             // the others
             query += @"&long=&lat=&alt=&raty=a&s=t&m=m&adir=S&oed=&e=0&resoc=&tit=&bu=&ch=c&ce=f&js=f";
 
@@ -105,15 +104,15 @@ namespace DeepSouthUtils
 
             this.get(fullpath + query);
 
-            // tagged with javascript 
-            HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(WebUtility.HtmlDecode(this.getResponseString()));
-            HtmlNodeCollection center = doc.DocumentNode.SelectNodes("//center");
+            // tagged with javascript
+            //            HtmlDocument doc = new HtmlDocument();
+            //doc.LoadHtml(WebUtility.HtmlDecode(this.getResponseString()));
+            //HtmlNodeCollection center = doc.DocumentNode.SelectNodes("//center");
 
-            if (center.Count == 1)
-                return center[0].InnerText;
-            else
-                return null;
+            //if (center.Count == 1)
+            //    return center[0].InnerText;
+            //else
+            return null;
         }
 
         // TODO: 정리
@@ -141,13 +140,13 @@ namespace DeepSouthUtils
             {
                 string test = Regex.Replace(lines[i].Replace(@"&nbsp;", @" "), @"\s+", @" ");
 
-                if (test.Length > 1 )
+                if (test.Length > 1)
                     linelist.Add(test);
             }
 
             lines = linelist.ToArray();
 
-            for( int i = 0 ; i < lines.Length; i ++ )
+            for (int i = 0; i < lines.Length; i++)
             {
                 if (lines[i].IndexOf(search) > -1 || lines[i].IndexOf(alternatedesigations) > -1)
                 {
@@ -168,7 +167,7 @@ namespace DeepSouthUtils
             string regex = @"\<[^\<\>]*\>"; // 정규표현식 선언
             string tagless = Regex.Replace(tagged, regex, string.Empty); // 정규표현식 적용된 문자열 선언
 
-            // remove rogue leftovers 
+            // remove rogue leftovers
             tagless = tagless.Replace("<", string.Empty).Replace(">", string.Empty); // 정규표현식 문자열 적용
             return tagless; // 정규표현식 리턴
         }
