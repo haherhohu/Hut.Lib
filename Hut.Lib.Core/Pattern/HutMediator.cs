@@ -1,3 +1,14 @@
+/******************************************************************************
+ * Hut Mediator Pattern
+ *
+ * - implements of Mediator pattern
+ * - need microsoft.csharp package
+ *
+ * Author : Daegung Kim
+ * Version: 1.0.0
+ * Update : 2020-04-27
+ ******************************************************************************/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,7 +70,7 @@ namespace Hut
     {
         public void Notify(Enum token)
         {
-            if(handlers.Keys.Contains(token))
+            if (handlers.Keys.Contains(token))
                 handlers[token]();
         }
     }
