@@ -1,28 +1,26 @@
 /******************************************************************************
- * Deep South TET
- * 
+ * Hut General Parser
+ *
  * - General File Parser Interface
- * 
+ *
  * Author : Youngsoo Ryu
  * Version: 1.0.2
- * Update : 2015-06-19
+ * Update : 2020-04-27
  ******************************************************************************/
 
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-
-
-namespace DeepSouthData
+namespace Hut
 {
-    public abstract class DeepSouthGeneralParser
+    public abstract class HutGeneralParser
     {
         protected Object objects;
 
         public const string ASTEROID_PROVISIONAL_DESIGNATION_REGEX = @"[0-9A-Z]{1}[0-9]{3}[\s]*[A-Z][A-Z\-]*[A-Z0-9][0-9]*"; // 1948 OA
 
-        public DeepSouthGeneralParser(string filename = null)
+        public HutGeneralParser(string filename = null)
         {
             objects = new Object();
 
@@ -65,12 +63,12 @@ namespace DeepSouthData
             return Regex.Replace(token, @"\s+", replace);
         }
 
-        protected string[] splitTextBySpaces(string text )
+        protected string[] splitTextBySpaces(string text)
         {
             return removeSpaces(text).Split(' ');
         }
 
-        public static string convertFormattedHMS( string time )
+        public static string convertFormattedHMS(string time)
         {
             string hour = time.Substring(0, 2);
             string minute = time.Substring(2, 2);
@@ -79,7 +77,7 @@ namespace DeepSouthData
             return convertFormattedHMS(hour, minute, second);
         }
 
-        public static string convertFormattedYMD( string date )
+        public static string convertFormattedYMD(string date)
         {
             string year = date.Substring(0, 4);
             string month = date.Substring(4, 2);
@@ -93,12 +91,12 @@ namespace DeepSouthData
             return convertDateTimeFormat(hour, minute, second, @":");
         }
 
-        public static string convertFormattedYMD( string year, string month, string day )
+        public static string convertFormattedYMD(string year, string month, string day)
         {
             return convertDateTimeFormat(year, month, day, @"-");
         }
 
-        protected static string convertDateTimeFormat( string s1, string s2, string s3, string connector )
+        protected static string convertDateTimeFormat(string s1, string s2, string s3, string connector)
         {
             return (s1 + connector + s2 + connector + s3);
         }

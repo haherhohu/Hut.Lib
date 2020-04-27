@@ -5,17 +5,17 @@ using System.Text;
 
 namespace Hut
 {
-    /// &lt;summary>
+    /// <summary>
     /// Class to store one CSV row
-    /// &lt;/summary>
+    /// </summary>
     public class CsvRow : List<string>
     {
         public string LineText { get; set; }
     }
 
-    /// &lt;summary>
+    /// <summary>
     /// Class to write data to a CSV file
-    /// &lt;/summary>
+    /// </summary>
     public class CsvFileWriter : StreamWriter
     {
         public CsvFileWriter(Stream stream)
@@ -28,10 +28,10 @@ namespace Hut
         {
         }
 
-        /// &lt;summary>
+        /// <summary>
         /// Writes a single row to a CSV file.
-        /// &lt;/summary>
-        /// &lt;param name="row">The row to be written&lt;/param>
+        /// </summary>
+        /// <param name="row">The row to be written</param>
         public void WriteRow(CsvRow row)
         {
             StringBuilder builder = new StringBuilder();
@@ -54,9 +54,9 @@ namespace Hut
         }
     }
 
-    /// &lt;summary>
+    /// <summary>
     /// Class to read data from a CSV file
-    /// &lt;/summary>
+    /// </summary>
     public class CsvFileReader : StreamReader
     {
         public CsvFileReader(Stream stream)
@@ -69,11 +69,11 @@ namespace Hut
         {
         }
 
-        /// &lt;summary>
+        /// <summary>
         /// Reads a row of data from a CSV file
-        /// &lt;/summary>
-        /// &lt;param name="row">&lt;/param>
-        /// &lt;returns>&lt;/returns>
+        /// </summary>
+        /// <param name="row"></param>
+        /// <returns></returns>
         public bool ReadRow(CsvRow row)
         {
             row.LineText = ReadLine();
