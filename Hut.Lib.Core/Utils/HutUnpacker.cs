@@ -20,7 +20,7 @@ namespace HutUtils
         {
         }
 
-        public void unpack(string filename, string outputfilename)
+        public void Unpack(string filename, string outputfilename)
         {
             string targetdir = Path.GetDirectoryName(Path.GetFullPath(outputfilename));
 

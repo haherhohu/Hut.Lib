@@ -16,7 +16,7 @@ namespace Hut
     // 빌더 패턴의 대상이 되는 건물
     public interface IHutBuilding
     {
-        T initialize<T>();
+        T Initialize<T>();
     }
 
     // 건축가
@@ -26,7 +26,7 @@ namespace Hut
     {
         public T Build()
         {
-            return new T().initialize<T>(); // with init
+            return new T().Initialize<T>(); // with init
         }
     }
 }

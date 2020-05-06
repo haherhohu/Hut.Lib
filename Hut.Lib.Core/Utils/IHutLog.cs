@@ -14,9 +14,11 @@ namespace Hut
 {
     public enum HutLogLevel
     {
+        Debug,
         Info,
         Warning,
-        Error
+        Error,
+        Fatal
     }
 
     public interface IHutLog

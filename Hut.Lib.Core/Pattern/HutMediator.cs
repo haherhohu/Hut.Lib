@@ -44,7 +44,7 @@ namespace Hut
     // Action<T> 가 a Action이 아니고 Action Chain 이므로 이렇게.
     public class HutBaseMediator<T>
     {
-        private object LordsOfTheLockerroom = new object();
+        private readonly object LordsOfTheLockerroom = new object();
         protected Dictionary<Enum, T> handlers = new Dictionary<Enum, T>();
 
         public void Register(Enum token, T doSomething)
