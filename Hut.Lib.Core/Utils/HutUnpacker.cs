@@ -1,33 +1,35 @@
 /******************************************************************************
  * Hut Unpacker
- * 
+ *
  * - Archive Unpacker
- * 
+ *
  * Author : Youngsoo Ryu
  * Version: 1.0.1
- * Update : 2015-04-17
+ * Update : 2020-05-06
  ******************************************************************************/
+
+using System;
 using System.IO;
-using SevenZipLib;
+using System.IO.Compression;
 
-namespace DeepSouthUtils
+namespace HutUtils
 {
-    public class DeepSouthUnpacker
+    public class HutUnpacker : IDisposable
     {
-        public void unpack( string filename, string outputfilename )
+        public void Dispose()
         {
-            using (SevenZipArchive archive = new SevenZipArchive( filename ) )
+        }
+
+        public void unpack(string filename, string outputfilename)
+        {
+            string targetdir = Path.GetDirectoryName(Path.GetFullPath(outputfilename));
+
+            if (Directory.Exists(targetdir))
             {
-//                string targetdir = Path.GetFileNameWithoutExtension(outputfilename);
-                string targetdir = Path.GetDirectoryName(Path.GetFullPath(filename));
-
-                if (File.Exists(outputfilename))
-                {
-                    File.Delete(outputfilename);
-                }
-
-                archive.ExtractAll( targetdir );
+                Directory.Delete(targetdir);
             }
+
+            ZipFile.ExtractToDirectory(filename, targetdir);
         }
     }
 }
