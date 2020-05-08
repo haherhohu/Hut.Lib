@@ -8,13 +8,13 @@ namespace Hut
 {
     public class HutTCPServer
     {
-        TcpListener server;
+        private TcpListener server;
 
         public HutTCPServer()
         {
         }
 
-        public void start(string address, int port)
+        public void Start(string address, int port)
         {
             try
             {
@@ -60,7 +60,6 @@ namespace Hut
             {
                 Console.WriteLine(@"SocketIOException: {0}", ex);
             }
-
             finally
             {
                 server.Stop();
@@ -70,18 +69,15 @@ namespace Hut
 }
 
 //    public delegate void TestTCPServerConnectionChanged(TestTCPServerConnection connection);
-    //    public delegate void TestTCPServerError(TestTCPServer server, Exception e);
+//    public delegate void TestTCPServerError(TestTCPServer server, Exception e);
 
-    //   public class TestTCPServer : Component
-    //{
+//   public class TestTCPServer : Component
+//{
+//	public TestTCPServer
+//	{
+//	}
 
-
-    //	public TestTCPServer
-    //	{
-
-    //	}
-
-    //}
+//}
 
 /*
 using System;
@@ -117,6 +113,7 @@ namespace test
         }
 
         #region server
+
         public static void startServer()
         {
             byte[] bytes = new byte[1024];
@@ -158,9 +155,10 @@ namespace test
             state.worksocket = handler;
         }
 
-        #endregion
+        #endregion server
 
         #region client
+
         public static void startClient()
         {
             try
@@ -203,7 +201,7 @@ namespace test
             }
         }
 
-        #endregion
+        #endregion client
 
         public static void Send(String data)
         {
@@ -225,7 +223,6 @@ namespace test
             {
                 Console.WriteLine(e.Message);
             }
-
         }
 
         private static void Receive(Socket socket)
@@ -270,7 +267,6 @@ namespace test
                 Console.WriteLine(e.Message);
             }
         }
-
     }
 }
 */
