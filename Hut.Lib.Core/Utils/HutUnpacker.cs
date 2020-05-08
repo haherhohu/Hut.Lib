@@ -12,7 +12,7 @@ using System;
 using System.IO;
 using System.IO.Compression;
 
-namespace HutUtils
+namespace Hut
 {
     public class HutUnpacker : IDisposable
     {

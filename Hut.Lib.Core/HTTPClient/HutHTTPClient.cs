@@ -15,7 +15,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace DeepSouthUtils
+namespace Hut
 {
     public class HutHTTPClient
     {
