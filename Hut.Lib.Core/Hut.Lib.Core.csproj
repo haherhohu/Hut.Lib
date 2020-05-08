@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>Hut.Lib</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Daegung Kim</Authors>
     <Company>Hutsori.Co.,Ltd.</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
