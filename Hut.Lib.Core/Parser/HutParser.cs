@@ -18,17 +18,17 @@ namespace Hut
     {
         // astroid provisional designation regex
         // public const string ASTEROID_PROVISIONAL_DESIGNATION_REGEX = @"[0-9A-Z]{1}[0-9]{3}[\s]*[A-Z][A-Z\-]*[A-Z0-9][0-9]*"; // 1948 OA
-        protected List<T> Objects { get; private set; }
+        protected List<T> Data { get; set; }
 
         // properties
-        public int NumberOfObjects { get { return Objects.Count; } }
+        public int NumberOfObjects { get { return Data.Count; } }
 
-        public T[] ObjectArray { get { return Objects.ToArray(); } }
+        public T[] ObjectArray { get { return Data.ToArray(); } }
 
         // basic constructor
         public HutParser(string filename = null)
         {
-            Objects = new List<T>();
+            Data = new List<T>();
 
             if (filename != null)
                 Read(filename);
@@ -40,7 +40,7 @@ namespace Hut
         // implement for IDisposable
         public void Dispose()
         {
-            Objects.Clear();
+            Data.Clear();
         }
 
         // check regular expression
