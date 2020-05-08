@@ -1,11 +1,11 @@
 /******************************************************************************
- * Hut General Parser
+ * Hut Parser
  *
  * - General File Parser Interface
  *
- * Author : Youngsoo Ryu
- * Version: 1.0.2
- * Update : 2020-04-27
+ * Author : Daegung Kim
+ * Version: 1.0.3
+ * Update : 2020-05-08
  ******************************************************************************/
 
 using System;
@@ -14,35 +14,33 @@ using System.Text.RegularExpressions;
 
 namespace Hut
 {
-    public abstract class HutGeneralParser
+    public abstract class HutParser<T> : IDisposable
     {
-        protected object objects;
+        // astroid provisional designation regex
+        // public const string ASTEROID_PROVISIONAL_DESIGNATION_REGEX = @"[0-9A-Z]{1}[0-9]{3}[\s]*[A-Z][A-Z\-]*[A-Z0-9][0-9]*"; // 1948 OA
+        protected List<T> Objects { get; private set; }
 
-        //public const string ASTEROID_PROVISIONAL_DESIGNATION_REGEX = @"[0-9A-Z]{1}[0-9]{3}[\s]*[A-Z][A-Z\-]*[A-Z0-9][0-9]*"; // 1948 OA
+        // properties
+        public int NumberOfObjects { get { return Objects.Count; } }
 
-        public HutGeneralParser(string filename = null)
+        public T[] ObjectArray { get { return Objects.ToArray(); } }
+
+        // basic constructor
+        public HutParser(string filename = null)
         {
-            objects = new object();
+            Objects = new List<T>();
 
             if (filename != null)
                 Read(filename);
         }
 
+        // read
         public abstract void Read(string filename);
 
-        public void Clear()
+        // implement for IDisposable
+        public void Dispose()
         {
-            ((List<object>)objects).Clear();
-        }
-
-        public int NumberOfObjects()
-        {
-            return ((List<object>)objects).Count;
-        }
-
-        public object[] ObjectArray()
-        {
-            return ((List<object>)objects).ToArray();
+            Objects.Clear();
         }
 
         // check regular expression
@@ -58,16 +56,19 @@ namespace Hut
             return result;
         }
 
+        // remove fucking spaces for old-style-fixed-format. for example "    " to " "
         protected string RemoveSpaces(string token, string replace = @" ")
         {
             return Regex.Replace(token, @"\s+", replace);
         }
 
+        // combo. "a   b    c" to "a b c" and split that ["a", "b", "c"]
         protected string[] SplitTextBySpaces(string text)
         {
             return RemoveSpaces(text).Split(' ');
         }
 
+        // TODO: deprecated sets for conversion datetime
         public static string ConvertFormattedHMS(string time)
         {
             string hour = time.Substring(0, 2);

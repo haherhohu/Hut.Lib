@@ -3,7 +3,7 @@
  *
  * - Archive Unpacker
  *
- * Author : Youngsoo Ryu
+ * Author : Daegung Kim
  * Version: 1.0.1
  * Update : 2020-05-06
  ******************************************************************************/

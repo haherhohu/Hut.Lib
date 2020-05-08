@@ -20,9 +20,9 @@ namespace Hut
 {
     public class HutJsonFile<T>
     {
-        public static T read(string filename, bool includetype = false)
+        public static T Read(string filename, bool includetype = false)
         {
-            T doc = default(T);
+            T doc = default;
 
             if (File.Exists(filename))
             {
@@ -49,7 +49,7 @@ namespace Hut
             return doc;
         }
 
-        public static void write(string filename, T doc, bool includetype = false)
+        public static void Write(string filename, T doc, bool includetype = false)
         {
             using (StreamWriter writer = new StreamWriter(filename, false))
             {

@@ -36,12 +36,12 @@ namespace Hut
             if (File.Exists(filename))
                 File.Delete(filename);
 
-            HutJsonFile<HutLogger<HutLogType>>.write(filename, this, true);
+            HutJsonFile<HutLogger<HutLogType>>.Write(filename, this, true);
         }
 
         public void Load(string filename)
         {
-            Logs = HutJsonFile<HutLogger<HutLogType>>.read(filename, true).Logs;
+            Logs = HutJsonFile<HutLogger<HutLogType>>.Read(filename, true).Logs;
         }
 
         [JsonProperty]
