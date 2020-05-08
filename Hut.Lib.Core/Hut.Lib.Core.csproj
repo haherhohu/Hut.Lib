@@ -6,6 +6,10 @@
     <Version>1.0.3</Version>
     <Authors>Daegung Kim</Authors>
     <Company>Hutsori.Co.,Ltd.</Company>
+    <PackageTags>hutsori;</PackageTags>
+    <Description>
+      small and light-weight package for system-base work
+    </Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
