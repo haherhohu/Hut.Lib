@@ -1,4 +1,14 @@
-﻿using System;
+﻿/******************************************************************************
+ * Hut Simple TCP Server
+ *
+ * - just basic server for easy using
+ *
+ * Author : Daegung Kim
+ * Version: 1.0.0
+ * Update : 2020-05-08
+ ******************************************************************************/
+
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
