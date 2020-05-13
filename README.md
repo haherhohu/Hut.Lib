@@ -1,5 +1,5 @@
-Hut Library
-===========
+Hutsori Library
+===============
 
 frequently used library collections for system-base development 
 such as log, setting, xml, json, ini, scheduled and/or event task,
@@ -32,10 +32,10 @@ currently under constructions are:
  
 #### 1.2. HutTaskManager
 * Time/File base Task Manager
-* Asynchronous Task with Sequential Multi Action base working
+* Asynchronous Task with (Sequential) Multi Action base working
 * Task Management with Json
 * Implemented Action - Archive(moving file), Execute(execute file), Transfer(using (s)ftp)
-* TODO: work management with System.Threading.Tasks(.net core)
+* TODO: work(thread) management with System.Threading.Tasks(.net core)
 
 #### 1.3. HutLog
 * Singleton Logger
@@ -48,7 +48,7 @@ currently under constructions are:
 * Dependency - Newtonsoft.Json
 
 #### 1.5 general parser
-* general-simple text parser
+* general-simple text parser. just remove multiple spaces with split
  
 #### 1.6. HutFTPClient
 * FTP Client
@@ -69,4 +69,3 @@ currently under constructions are:
 
 ### 2. HutTest test Program
 * Just Test for HutLib
-
