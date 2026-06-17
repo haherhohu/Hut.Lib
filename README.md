@@ -69,3 +69,5 @@ currently under constructions are:
 
 ### 2. HutTest test Program
 * Just Test for HutLib
+
+git test
